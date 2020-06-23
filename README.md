@@ -1,68 +1,66 @@
-# MatJek
+# Edition
 
-A responsive [Material](https://material.io/) theme based on [Materialize.css](http://materializecss.com/) for jekyll sites.
+Product documentation template for Jekyll. Browse through a [live demo](https://long-pig.cloudvent.net/).
+Start documenting your product, application, service or website with this configurable theme.
+
+![Edition template screenshot](images/_screenshot.png)
+
+Edition was made by [CloudCannon](http://cloudcannon.com/), the Cloud CMS for Jekyll.
+
+Find more templates, themes and step-by-step Jekyll tutorials at [CloudCannon Academy](https://learn.cloudcannon.com/).
 
 ## Features
 
+* Two column layout
+* Full text search
+* Pre-styled components
+* Auto-generated navigation based on category
+* Optimised for editing in [CloudCannon](http://cloudcannon.com/)
+* Change log
+* RSS/Atom feed
+* SEO tags
 * Google Analytics
-* Disqus
-* [GitHub project page](https://shawnteoh.github.io/matjek/projects/)
-* [Tags](https://shawnteoh.github.io/matjek/tags/) and [Categories](https://shawnteoh.github.io/matjek/categories/)
-* Modular CSS and JS includes ([example](https://github.com/ShawnTeoh/matjek/blob/gh-pages/projects.md/))
-* [Fancy "About" page](https://shawnteoh.github.io/matjek/about)
 
-## Installation
+## Setup
 
-Clone or fork this repo and edit `_config.yml` as needed.
+1. Add your site and author details in `_config.yml`.
+2. Get a workflow going to see your site's output (with [CloudCannon](https://app.cloudcannon.com/) or Jekyll locally).
 
-## Configuration
+## Develop
 
-Most of the configurations can be found in `_config.yml`. The configurations listed below are specific to MatJek. If you are not using `google_tracking_id` or `disqus_shortname`, just remove them completely.
+Edition was built with [Jekyll](http://jekyllrb.com/) version 3.3.1, but should support newer versions as well.
 
-```yaml
-github_profile: "github_profile_url"
-user: "your_name" # Appears at sidebar
-user_email: "your_email" # Appears at sidebar, remove whole variable if unwanted
-contact_url: "google_form_link"
-google_tracking_id: "google_analytics_ID"
-disqus_shortname: "shortname_given_by_Disqus"
-```
+Install the dependencies with [Bundler](http://bundler.io/):
 
-Edit the images in `assets/res` to suit your liking, but try to stick to the original resolutions.
+~~~bash
+$ bundle install
+~~~
 
-If you would like to enable comments in a post (disqus_shortname must be provided), add this line to the front matter of the post.
+Run `jekyll` commands through Bundler to ensure you're using the right versions:
 
-```yaml
-comments: 1
-```
+~~~bash
+$ bundle exec jekyll serve
+~~~
 
-Add tags and categories to your posts in the front matter as well. Multiple tags/categories can be assigned but need to be separated by spaces.
+## Editing
 
-```yaml
-categories: default default2
-tags: test test2
-```
+Edition is already optimised for adding, updating and removing documentation pages in CloudCannon.
 
-## Contributing
+### Documentation pages
 
-Bug reports and pull requests are welcomed on GitHub at https://github.com/shawnteoh/matjek. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+* Add, update or remove a documentation page in the *Documentation* collection.
+* Change the category of a documentation page to move it to another section in the navigation.
+* Documentation pages are organised in the navigation by category, with URLs based on the path inside the `_docs` folder.
 
-## Development
+### Change log
 
-To set up your environment to develop this theme, clone/fork the repo and run `bundle install`.
+* Add, update or remove change log entries from your posts.
+* Tag entries as minor or major in the front matter.
 
-To test your theme, run `bundle exec jekyll serve` and open your browser at `http://localhost:4000/matjek/`. This starts a Jekyll server using your theme. Add pages, documents, data, etc. like normal to test your theme's contents. As you make modifications to your theme and to your content, your site will regenerate and you should see the changes in the browser after a refresh, just like normal.
+### Search
 
-## License
+* Add `excluded_in_search: true` to any documentation page's front matter to exclude that page in the search results.
 
-The theme is available as open source under the terms of the [GPL v3 License](https://www.gnu.org/licenses/gpl-3.0.en.html).
+### Navigation
 
-## Libraries
-* [Materialize.css](http://materializecss.com/)
-* [GeoPattern](https://github.com/btmills/geopattern/)
-* [Animate.css](https://daneden.github.io/animate.css/)
-* [Morphtext](http://morphext.fyianlai.com/)
-
-## References
-* https://github.com/DONGChuan/Yummy-Jekyll/
-* https://github.com/codinfox/codinfox-lanyon/
+* Change `site.show_full_navigation` to control all or only the current navigation group being open.

@@ -1,46 +1,79 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+# ----
+# Site
 
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
-title: MatJek
-description: > # this means to ignore newlines until "baseurl:"
-  Material theme based on <a href="http://materializecss.com">Materialize.css</a> for jekyll sites
-baseurl: "/matjek"
-url: "https://shawnteoh.github.io"
-permalink: /:year/:month/:day/:title
-repository: ShawnTeoh/matjek
-paginate: 5
+title: Edition Template
+url: "https://long-pig.cloudvent.net"
+baseurl:
+google_analytics_key:
+show_full_navigation: true
 
-# MatJek specific configurations
-github_profile: "https://github.com/ShawnTeoh"
-user: "John Doe"
-user_email: "john@doe.com"
-contact_url: "https://goo.gl/tVljbV"
-google_tracking_id: "UA-96359860-1"
-google_site_verification: "UA-96359860-1"
-disqus_shortname: "matjek"
+# Values for the jekyll-seo-tag gem (https://github.com/jekyll/jekyll-seo-tag)
+logo: /siteicon.png
+description: Product documentation template for Jekyll.
+author:
+  name:
+  email:
+  twitter: # twitter username without the @ symbol
+social:
+  name: Edition Template
+  links:
+    - https://github.com/CloudCannon/edition-jekyll-template
 
-# Build settings
-markdown: kramdown
-gems:
-  - jekyll-feed
-  - jekyll-paginate
-  - jekyll-seo-tag
+# -----
+# Build
+
+timezone: Etc/UTC
+
+permalink: pretty
+
+plugins:
   - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-feed
+
 exclude:
   - Gemfile
   - Gemfile.lock
-sass:
-  style: compressed
-future: true
+  - README.md
+  - LICENCE
+
+collections:
+  docs:
+    title: Documentation
+    permalink: /:path/
+    output: true
+
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: default
+  -
+    scope:
+      path: ""
+      type: "docs"
+    values:
+      seo:
+        type: Article
+      _comments:
+        category: Group navigation links with this field
+        order: Used to sort links in the navigation
+      _options:
+        content:
+          width: 800
+          height: 2000
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      _comments:
+        type: Marks the impact of this release
+
+# -----------
+# CloudCannon
+
+types:
+  - minor
+  - major
